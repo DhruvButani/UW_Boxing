@@ -1,11 +1,13 @@
 import { Outlet } from "react-router";
 import BoxingNavbar from "./nav/BoxingNavbar";
+import SlideshowBg from "./SlideshowBg";
 
 export default function BoxingClub() {
-    return <div>
-        <BoxingNavbar />
-        <div style={{ margin: "1.5rem" }}>
+    return (
+        <div>
+            <SlideshowBg />
+            <BoxingNavbar />
             <Outlet />
         </div>
-    </div>
+    );
 }

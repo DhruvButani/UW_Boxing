@@ -1,5 +1,3 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
-
 const levels = [
     {
         level: "Beginners",
@@ -22,37 +20,35 @@ const levels = [
         location: "Twisted Fitness Gym / Canvas Club Boxing",
         sessions: [
             { day: "Saturday", time: "9:30 – 11:00 AM (Twisted Fitness)" },
-            { day: "Sunday", time: "10:00 – 11:00 AM (Alternates between Twisted & Canvas per week)" },
+            { day: "Sunday", time: "10:00 – 11:00 AM (Alternates Twisted & Canvas)" },
         ],
     },
 ];
 
 export default function Schedule() {
-    return <div>
-        <h1 className="section-title">Class Schedule</h1>
-        <p className="text-muted mb-4">
-            Please note that practice times and locations are subject to change.
-            Changes will be reflected on the club instagram story or discord ahead of time.
-        </p>
-
-        <Container fluid>
-            <Row>
-                {levels.map((lvl) => (
-                    <Col key={lvl.level} xs={12} md={4} className="mb-3">
-                        <Card className="schedule-card h-100">
-                            <Card.Body>
-                                <Card.Title>{lvl.level}</Card.Title>
-                                <p className="text-muted small mb-2">{lvl.location}</p>
-                                {lvl.sessions.map((s) => (
-                                    <div key={s.day} className="mb-1">
-                                        <strong>{s.day}:</strong> {s.time}
-                                    </div>
-                                ))}
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-    </div>
+    return (
+        <div className="schedule-layout">
+            <div className="schedule-slideshow-area" />
+            <div className="schedule-panel">
+                <h1 className="panel-title">Class Schedule</h1>
+                <p className="panel-note">
+                    Times and locations subject to change — check Instagram or Discord ahead of time.
+                </p>
+                <div className="schedule-cards">
+                    {levels.map((lvl) => (
+                        <div key={lvl.level} className="schedule-level-card">
+                            <div className="slc-title">{lvl.level}</div>
+                            <div className="slc-location">{lvl.location}</div>
+                            {lvl.sessions.map((s) => (
+                                <div key={s.day} className="slc-session">
+                                    <span className="slc-day">{s.day}:</span>
+                                    <span className="slc-time">{s.time}</span>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 }

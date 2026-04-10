@@ -1,55 +1,30 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
-
 const officers = [
-    {
-        name: "Default Name",
-        role: "President",
-        bio: "Default text",
-    },
-    {
-        name: "Default Name",
-        role: "Vice President",
-        bio: "Default text",
-    },
-    {
-        name: "Default Name",
-        role: "Treasurer",
-        bio: "Default text",
-    },
-    {
-        name: "Default Name",
-        role: "Head Coach",
-        bio: "Default text",
-    },
-    {
-        name: "Default Name",
-        role: "Social Media Officer",
-        bio: "Default text",
-    },
-    {
-        name: "Default Name",
-        role: "Beginners Practice Coach",
-        bio: "Default text",
-    },
+    { name: "Dhruv Butani",     role: "President & Intermediate Captain" },
+    { name: "Collin Harvey",    role: "Vice President & Intermediate Captain" },
+    { name: "Marissa Post",     role: "Treasurer" },
+    { name: "Emilio Fernandez", role: "Social Media Chair & Intermediate Captain" },
+    { name: "Joe Smukowski",    role: "Secretary" },
+    { name: "Amparo Campos",    role: "Community Service Chair" },
+    { name: "Reuben Guzik",     role: "Safety Officer & Intermediate Captain" },
+    { name: "Jimmy Angelos",    role: "Intermediate Captain & Beginner Instructor" },
+    { name: "Julio Garcia",     role: "Head Coach" },
 ];
 
 export default function Info() {
-    return <div>
-        <h1 className="section-title">Club Info</h1>
-        <Container fluid>
-            <Row>
-                {officers.map((officer, i) => (
-                    <Col key={i} xs={12} sm={6} lg={4} className="mb-4">
-                        <Card className="officer-card h-100">
-                            <Card.Body>
-                                <Card.Title>{officer.name}</Card.Title>
-                                <Card.Subtitle className="mb-2">{officer.role}</Card.Subtitle>
-                                <Card.Text className="text-muted">{officer.bio}</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-    </div>
+    return (
+        <div className="schedule-layout">
+            <div className="schedule-slideshow-area" />
+            <div className="schedule-panel">
+                <h1 className="panel-title">Club Officers</h1>
+                <div className="panel-scroll-list">
+                    {officers.map((o) => (
+                        <div key={o.name} className="schedule-level-card">
+                            <div className="slc-title">{o.name}</div>
+                            <div className="slc-location">{o.role}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 }
