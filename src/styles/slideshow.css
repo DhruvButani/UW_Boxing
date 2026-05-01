@@ -1,0 +1,24 @@
+.slideshow-fixed {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+.slideshow-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.8s ease;
+}
+.slideshow-bg.slideshow-zoomed {
+    animation: slowZoom 5s ease forwards;
+}
+@keyframes slowZoom {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.08); }
+}
+.slideshow-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}

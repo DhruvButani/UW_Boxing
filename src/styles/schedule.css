@@ -1,0 +1,113 @@
+.schedule-layout {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: calc(100vh - var(--navbar-h));
+    overflow: hidden;
+}
+.schedule-slideshow-area { flex: 1; }
+.schedule-panel {
+    width: 340px;
+    background: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(12px);
+    border-left: 1px solid var(--uw-border);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    gap: 0;
+}
+.panel-title {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--uw-white);
+    margin-bottom: 0.3rem;
+}
+.panel-title::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: var(--uw-red);
+    margin: 0.4rem 0 0;
+    border-radius: 2px;
+}
+.panel-note {
+    font-size: 0.78rem;
+    color: var(--uw-muted);
+    margin: 1rem 0 1.5rem;
+    line-height: 1.5;
+}
+.panel-scroll-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+.panel-scroll-list::-webkit-scrollbar { width: 3px; }
+.panel-scroll-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+}
+.schedule-section {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(8px);
+    padding: 3rem 2rem 4rem;
+    min-height: calc(100vh - var(--navbar-h) - 8rem);
+}
+.schedule-section .schedule-cards {
+    max-width: 720px;
+    margin: 0 auto;
+}
+.schedule-cards { display: flex; flex-direction: column; gap: 1rem; }
+.schedule-level-card {
+    background: var(--uw-card);
+    border: 1px solid var(--uw-border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+.schedule-level-card:hover {
+    border-color: rgba(197, 5, 12, 0.4);
+    background: rgba(197, 5, 12, 0.06);
+}
+.slc-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--uw-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}
+.slc-location {
+    font-size: 0.78rem;
+    color: var(--uw-muted);
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
+}
+.slc-session {
+    margin-bottom: 0.3rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+.slc-day { font-weight: 600; color: var(--uw-red); margin-right: 0.3rem; }
+.slc-time { color: rgba(255,255,255,0.8); }
+
+.contact-link-card {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.18s, border-color 0.18s, transform 0.18s;
+}
+.contact-link-card:hover {
+    background: rgba(197, 5, 12, 0.15);
+    border-color: rgba(197, 5, 12, 0.5);
+    transform: translateY(-2px);
+}
+.contact-link-card:hover .slc-title { color: #ff8080; }
+.contact-link-card .slc-location { margin-bottom: 0; }

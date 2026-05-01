@@ -1,0 +1,116 @@
+.join-form-wrap {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(8px);
+    padding: 2.5rem 1rem 4rem;
+    min-height: calc(100vh - var(--navbar-h) - 160px);
+}
+.join-form-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--uw-card);
+    border: 1px solid var(--uw-border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+}
+.join-form-card .form-label {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+.form-hint {
+    color: var(--uw-muted);
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.form-ctrl-dark {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.14) !important;
+    color: var(--uw-white) !important;
+    border-radius: 7px !important;
+    transition: border-color 0.15s !important;
+}
+.form-ctrl-dark::placeholder { color: rgba(255,255,255,0.3) !important; }
+.form-ctrl-dark:focus {
+    border-color: var(--uw-red) !important;
+    box-shadow: 0 0 0 3px rgba(197, 5, 12, 0.2) !important;
+    background: rgba(255,255,255,0.08) !important;
+}
+.form-ctrl-dark option { background: #1a1a1a; color: #fff; }
+
+/* Toggle pills */
+.toggle-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
+.toggle-group-err { border-color: #dc3545; }
+.toggle-pill {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.toggle-pill:hover {
+    border-color: rgba(255,255,255,0.4);
+    color: #fff;
+}
+.toggle-pill.active {
+    background: var(--uw-red);
+    border-color: var(--uw-red);
+    color: #fff;
+}
+.toggle-feedback {
+    font-size: 0.85rem;
+    color: #f87171;
+    margin-top: 0.35rem;
+}
+.join-submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--uw-red) !important;
+    border: none !important;
+    border-radius: 7px !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: background 0.15s !important;
+}
+.join-submit-btn:hover { background: #a00009 !important; }
+
+/* Success card */
+.join-success-wrap {
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(8px);
+    min-height: calc(100vh - var(--navbar-h) - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+.join-success-card {
+    background: var(--uw-card);
+    border: 1px solid var(--uw-border);
+    border-radius: 14px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    max-width: 520px;
+}
+.join-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.join-success-card h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.join-success-card p { color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 0.5rem; }
+.join-success-sub { font-size: 0.9rem; color: var(--uw-muted) !important; }

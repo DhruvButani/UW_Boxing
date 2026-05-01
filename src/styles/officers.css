@@ -1,0 +1,53 @@
+.officers-section {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(8px);
+    padding: 3rem 2rem;
+}
+.officers-grid-new {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.officer-card-new {
+    background: var(--uw-card);
+    border: 1px solid var(--uw-border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.officer-card-new:hover {
+    border-color: rgba(197, 5, 12, 0.4);
+    background: rgba(197, 5, 12, 0.06);
+    transform: translateY(-2px);
+}
+.officer-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--uw-red);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+.officer-name-new {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--uw-white);
+    margin-bottom: 0.2rem;
+}
+.officer-role-new {
+    font-size: 0.75rem;
+    color: var(--uw-muted);
+    line-height: 1.4;
+}
