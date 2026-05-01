@@ -7,6 +7,7 @@ import Info     from "./pages/Info";
 import Contact  from "./pages/Contact";
 import Gallery  from "./pages/Gallery";
 import Join     from "./pages/Join";
+import Announcements from "./pages/Announcements";
 
 export default function BoxingRouter() {
     return (
@@ -18,6 +19,7 @@ export default function BoxingRouter() {
                     <Route path="info"     element={<Info />}     />
                     <Route path="contact"  element={<Contact />}  />
                     <Route path="gallery"  element={<Gallery />}  />
+                    <Route path="announcements" element={<Announcements />} />
                     <Route path="join"     element={<Join />}     />
                 </Route>
             </Routes>

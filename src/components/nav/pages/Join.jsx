@@ -3,6 +3,8 @@ import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
 
 const LEVELS = ["Beginner", "Intermediate", "Competitive"];
 
+const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbxTelkAF1PdLh5ukBtCVE4ItO8HGkbeo4AStVJ7-Ld2os48tpxfmXhUbOtoFMNpsb0l/exec";
+
 function validate(fields) {
     const errs = {};
     if (!fields.email.endsWith("@wisc.edu"))
@@ -21,6 +23,8 @@ export default function Join() {
     });
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
 
     const set = (key, val) => setFields(f => ({ ...f, [key]: val }));
 
@@ -29,11 +33,26 @@ export default function Join() {
             ? fields[key].filter(v => v !== val)
             : [...fields[key], val]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const errs = validate(fields);
         setErrors(errs);
-        if (Object.keys(errs).length === 0) setSubmitted(true);
+        if (Object.keys(errs).length > 0) return;
+
+        setSubmitting(true);
+        setSubmitError(null);
+        try {
+            await fetch(SHEET_ENDPOINT, {
+                method: "POST",
+                mode: "no-cors",
+                body: JSON.stringify(fields),
+            });
+            setSubmitted(true);
+        } catch (err) {
+            setSubmitError("Couldn't submit — check your connection and try again.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     if (submitted) return (
@@ -152,8 +171,12 @@ export default function Join() {
                         />
                     </Form.Group>
 
-                    <Button type="submit" className="join-submit-btn">
-                        Submit Interest Form
+                    {submitError && (
+                        <Alert variant="danger" className="mb-3">{submitError}</Alert>
+                    )}
+
+                    <Button type="submit" className="join-submit-btn" disabled={submitting}>
+                        {submitting ? "Submitting..." : "Submit Interest Form"}
                     </Button>
                 </Form>
             </Container>

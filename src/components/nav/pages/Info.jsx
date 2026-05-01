@@ -1,3 +1,5 @@
+import OfficerCard from "../../OfficerCard";
+
 const officers = [
     { name: "Dhruv Butani",     role: "President & Intermediate Captain",              initials: "DB" },
     { name: "Collin Harvey",    role: "Vice President & Intermediate Captain",         initials: "CH" },
@@ -19,13 +21,12 @@ export default function Info() {
             <div className="officers-section">
                 <div className="officers-grid-new">
                     {officers.map((o) => (
-                        <div key={o.name} className="officer-card-new">
-                            <div className="officer-avatar">{o.initials}</div>
-                            <div className="officer-info">
-                                <div className="officer-name-new">{o.name}</div>
-                                <div className="officer-role-new">{o.role}</div>
-                            </div>
-                        </div>
+                        <OfficerCard
+                            key={o.name}
+                            name={o.name}
+                            role={o.role}
+                            initials={o.initials}
+                        />
                     ))}
                 </div>
             </div>
